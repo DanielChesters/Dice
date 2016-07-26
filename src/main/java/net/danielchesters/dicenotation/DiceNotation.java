@@ -22,6 +22,6 @@ public class DiceNotation {
         walker.walk(listener, diceSentenceContext);
 
 
-        return  listener.roll();
+        return listener.roll();
     }
 }

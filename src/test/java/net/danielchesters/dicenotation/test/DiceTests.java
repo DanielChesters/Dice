@@ -18,4 +18,34 @@ public class DiceTests {
         assertThat(DiceNotation.roll("d6"), allOf(greaterThanOrEqualTo(1),
             lessThanOrEqualTo(6)));
     }
+
+    @Test
+    public void testD4() {
+        assertThat(DiceNotation.roll("d4"), allOf(greaterThanOrEqualTo(1),
+            lessThanOrEqualTo(4)));
+    }
+
+    @Test
+    public void testD8() {
+        assertThat(DiceNotation.roll("d8"), allOf(greaterThanOrEqualTo(1),
+            lessThanOrEqualTo(8)));
+    }
+
+    @Test
+    public void testD10() {
+        assertThat(DiceNotation.roll("d10"), allOf(greaterThanOrEqualTo(1),
+            lessThanOrEqualTo(10)));
+    }
+
+    @Test
+    public void testD12() {
+        assertThat(DiceNotation.roll("d12"), allOf(greaterThanOrEqualTo(1),
+            lessThanOrEqualTo(12)));
+    }
+
+    @Test
+    public void testD20() {
+        assertThat(DiceNotation.roll("d20"), allOf(greaterThanOrEqualTo(1),
+            lessThanOrEqualTo(20)));
+    }
 }
