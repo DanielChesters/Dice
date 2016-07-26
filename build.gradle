@@ -1,0 +1,16 @@
+group 'net.danielchesters'
+version '0.1'
+
+apply plugin: 'java'
+apply plugin: 'antlr'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    antlr "org.antlr:antlr4:4.5.3"
+}
