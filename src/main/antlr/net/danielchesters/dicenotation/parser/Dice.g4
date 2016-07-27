@@ -10,7 +10,7 @@ dice : numberDices? diceType;
 
 diceType : 'd'numberFaces;
 
-numberFaces : POS_INT;
+numberFaces : (POS_INT | '%');
 
 numberDices : POS_INT;
 

@@ -4,8 +4,7 @@ import net.danielchesters.dicenotation.DiceNotation;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.allOf;
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
-import static org.hamcrest.Matchers.lessThanOrEqualTo;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -53,5 +52,15 @@ public class DiceTests {
     public void test2D6() {
         assertThat(DiceNotation.roll("2d6"), allOf(greaterThanOrEqualTo(2),
             lessThanOrEqualTo(12)));
+    }
+
+    @Test
+    public void testD1() {
+        assertThat(DiceNotation.roll("d1"), equalTo(1));
+    }
+
+    @Test
+    public void testPercentileDice() {
+        assertThat(DiceNotation.roll("d%"), allOf(greaterThanOrEqualTo(1), lessThanOrEqualTo(100)));
     }
 }

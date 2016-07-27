@@ -17,7 +17,16 @@ public class DiceListenerImpl extends DiceBaseListener {
     }
 
     @Override public void enterDiceType(DiceParser.DiceTypeContext ctx) {
-        int numberFaces = Integer.parseInt(ctx.numberFaces().getText());
+        String faces = ctx.numberFaces().getText();
+        int numberFaces;
+        switch (faces) {
+            case "%" :
+                numberFaces = 100;
+                break;
+            default:
+                numberFaces = Integer.parseInt(faces);
+                break;
+        }
         if (numberDices > 1) {
             dice = new MultipleDice(numberFaces, numberDices);
         } else {
