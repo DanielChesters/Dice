@@ -48,4 +48,10 @@ public class DiceTests {
         assertThat(DiceNotation.roll("d20"), allOf(greaterThanOrEqualTo(1),
             lessThanOrEqualTo(20)));
     }
+
+    @Test
+    public void test2D6() {
+        assertThat(DiceNotation.roll("2d6"), allOf(greaterThanOrEqualTo(2),
+            lessThanOrEqualTo(12)));
+    }
 }

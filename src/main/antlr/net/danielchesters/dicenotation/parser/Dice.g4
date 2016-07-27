@@ -6,8 +6,14 @@ package net.danielchesters.dicenotation.parser;
 
 diceSentence : dice;
 
-dice : 'd'NUMBER_FACES;
+dice : numberDices? diceType;
 
-NUMBER_FACES : [0-9]+;
+diceType : 'd'numberFaces;
+
+numberFaces : POS_INT;
+
+numberDices : POS_INT;
+
+POS_INT : [0-9]+;
 
 WHITESPACE : ( '\t' | ' ' | '\r' | '\n'| '\u000C' )+ -> skip ;
