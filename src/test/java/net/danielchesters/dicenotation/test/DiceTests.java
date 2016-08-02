@@ -58,6 +58,17 @@ public class DiceTests {
         assertThat(DiceNotation.roll("d%"), getExpectedValue(1, 100));
     }
 
+    @Test
+    public void test2D6Plus5() {
+        assertThat(DiceNotation.roll("2d6+5"), getExpectedValue(7, 17));
+    }
+
+    @Test
+    public void test3D10Minus6() {
+        assertThat(DiceNotation.roll("3d10-6"), getExpectedValue(-3, 24));
+    }
+
+
     private Matcher<Integer> getExpectedValue(int min, int max) {
         return allOf(greaterThanOrEqualTo(min),
             lessThanOrEqualTo(max));

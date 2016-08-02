@@ -1,8 +1,6 @@
 package net.danielchesters.dicenotation.parser;
 
-import net.danielchesters.dicenotation.model.Dice;
-import net.danielchesters.dicenotation.model.MultipleDice;
-import net.danielchesters.dicenotation.model.SimpleDice;
+import net.danielchesters.dicenotation.model.*;
 
 /**
  * @author Daniel Chesters (on 26/07/16).
@@ -10,17 +8,41 @@ import net.danielchesters.dicenotation.model.SimpleDice;
 public class DiceListenerImpl extends DiceBaseListener {
 
     private Dice dice;
-    private int numberDices;
 
-    @Override public void enterNumberDices(DiceParser.NumberDicesContext ctx) {
-        numberDices = Integer.parseInt(ctx.getText());
+    @Override public void enterExpression(DiceParser.ExpressionContext ctx) {
+        if (dice == null) {
+            dice = createDice(ctx);
+        }
     }
 
-    @Override public void enterDiceType(DiceParser.DiceTypeContext ctx) {
-        String faces = ctx.numberFaces().getText();
+    private Dice createDice(DiceParser.ExpressionContext ctx) {
+        if (ctx.dice() != null) {
+            return createRealDices(ctx.dice());
+        } else if (ctx.constant() != null) {
+            return new Constant(Integer.parseInt(ctx.constant().getText()));
+        } else {
+            switch (ctx.operator.getText()) {
+                case "+":
+                    return new Expression(createDice(ctx.left), createDice(ctx.right),
+                        Expression.Operation.PLUS);
+                case "-":
+                    return new Expression(createDice(ctx.left), createDice(ctx.right),
+                        Expression.Operation.MINUS);
+                default:
+                    throw new UnsupportedOperationException();
+            }
+        }
+    }
+
+    private Dice createRealDices(DiceParser.DiceContext dice) {
+        int numberDices = 0;
         int numberFaces;
+        if (dice.numberDices() != null) {
+            numberDices = Integer.parseInt(dice.numberDices().getText());
+        }
+        String faces = dice.diceType().numberFaces().getText();
         switch (faces) {
-            case "%" :
+            case "%":
                 numberFaces = 100;
                 break;
             default:
@@ -28,11 +50,12 @@ public class DiceListenerImpl extends DiceBaseListener {
                 break;
         }
         if (numberDices > 1) {
-            dice = new MultipleDice(numberFaces, numberDices);
+            return new MultipleDice(numberFaces, numberDices);
         } else {
-            dice = new SimpleDice(numberFaces);
+            return new SimpleDice(numberFaces);
         }
     }
+
 
     public int roll() {
         return dice.roll();

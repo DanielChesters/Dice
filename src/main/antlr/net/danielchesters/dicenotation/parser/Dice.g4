@@ -4,16 +4,21 @@ grammar Dice;
 package net.danielchesters.dicenotation.parser;
 }
 
-diceSentence : dice;
+line : expression EOF;
+
+expression : left = expression operator=(PLUS|MINUS) right = expression
+           | dice
+           | constant;
 
 dice : numberDices? diceType;
-
-diceType : 'd'numberFaces;
-
-numberFaces : (POS_INT | '%');
-
+diceType : D numberFaces;
+numberFaces : (POS_INT | PERCENTILE);
 numberDices : POS_INT;
+constant : POS_INT;
 
 POS_INT : [0-9]+;
-
-WHITESPACE : ( '\t' | ' ' | '\r' | '\n'| '\u000C' )+ -> skip ;
+PERCENTILE : '%';
+D : 'd';
+WHITESPACE : ( '\t' | ' ' | '\r' | '\n'| '\u000C')+ -> skip ;
+PLUS : '+';
+MINUS : '-';

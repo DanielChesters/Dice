@@ -16,10 +16,10 @@ public class DiceNotation {
 
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         DiceParser parser = new DiceParser(tokens);
-        DiceParser.DiceSentenceContext diceSentenceContext = parser.diceSentence();
+        DiceParser.ExpressionContext expressionContext = parser.expression();
         ParseTreeWalker walker = new ParseTreeWalker();
         DiceListenerImpl listener = new DiceListenerImpl();
-        walker.walk(listener, diceSentenceContext);
+        walker.walk(listener, expressionContext);
 
         return listener.roll();
     }
