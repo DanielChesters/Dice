@@ -1,6 +1,9 @@
 group 'net.danielchesters'
 version '0.1'
 
+plugins {
+    id "org.sonarqube" version "2.3"
+}
 apply plugin: 'java'
 apply plugin: 'antlr'
 

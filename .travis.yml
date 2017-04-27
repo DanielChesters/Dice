@@ -5,7 +5,7 @@ addons:
   sonarqube:
     organization: "danielchesters-github"
     token:
-      secure: "enjHVOyI1SwwC94N2kG3jwQoxxis2iv04MKy1MrFhT/dT1MRZjcVuWPmwYRQCjKPURbh5XZn+wKayb++HxrCnoL57YS+9qNb263wDXXRNc5imvRCubY29IEgWJnyVbCLAerbeoGeJda0BizHgjnVz31eqPyhLL/B9NiHY++5HJk="
+      secure: "Chq6NKz4RZJdFZOIRNAtFAIyEMKil+jbqf4zMAiVEwpz7CwEPgAdm6eURIbx4kLbAL72n9tbO2R6ikGrUbviUbyU/RZHbIwZ8nc0tBuQW5W6r1oZ2JGTlCQcwRE7ShTAyV3p6ovsKTpmAUO2g2d9O+irE6vg9oI2AaOc22P2bgtx06x2NyGk8NmP6KA0Yb+bELAMvLGh8CLwKCjzCy5V3VCnXAoTPhbhrgmKDz4A1tqa2VnLTknV/z2jRhkSimcJAh3oa55wAmlWH4FuwW0RaxklAYLakW8obyWC9Wgq7up72yo0MxeiaG/DbfsWifixf8yEy9Ey/LTjwlldzgsmG1IhsaF3dSgo7lS7waCwRFvZaei+XvaqBKsqJvHKmdZ+LlrbyhyCqSUDaykRVw7640RKc9BtDgelnOmmbOCCt/C3JVd6UEFVH5nn+n/9mS/rJt2IMGlrofAMdpELIoubsoPx8/cm7sxSRYrTEPWQkCfd5QZpPnD9/Ok2BXfYs9CPbeW3H5QWwGFhyOficw5uD+p8HTbqiAUnJF7XQjPgHTLPSkZaqVworEQz9LdaHOKoN4ba4V/XzORs4ac34wnY1sr3GGYV22ElXRcOzM2lm0dx1uxN6r++V5Kk/FTGfIzFQ3+ogcWbPKK2gtkF3IwuouQmAXGcXiNLGcGURPLKeDE="
 jdk:
   - oraclejdk8
 script:
