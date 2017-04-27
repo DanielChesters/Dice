@@ -41,13 +41,10 @@ public class DiceListenerImpl extends DiceBaseListener {
             numberDices = Integer.parseInt(dice.numberDices().getText());
         }
         String faces = dice.diceType().numberFaces().getText();
-        switch (faces) {
-            case "%":
-                numberFaces = 100;
-                break;
-            default:
-                numberFaces = Integer.parseInt(faces);
-                break;
+        if ("%".equals(faces)) {
+            numberFaces = 100;
+        } else {
+            numberFaces = Integer.parseInt(faces);
         }
         if (numberDices > 1) {
             return new MultipleDice(numberFaces, numberDices);

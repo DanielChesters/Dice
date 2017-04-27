@@ -11,6 +11,9 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
  * @author Daniel Chesters (on 26/07/16).
  */
 public class DiceNotation {
+    private DiceNotation() {
+    }
+
     public static int roll(String notation) {
         DiceLexer lexer = new DiceLexer(new ANTLRInputStream(notation));
 
