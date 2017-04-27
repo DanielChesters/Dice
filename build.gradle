@@ -1,11 +1,11 @@
-group 'net.danielchesters'
-version '0.1'
-
 plugins {
+    id "java"
+    id "antlr"
     id "org.sonarqube" version "2.3"
 }
-apply plugin: 'java'
-apply plugin: 'antlr'
+
+group 'net.danielchesters'
+version '0.1'
 
 sourceCompatibility = 1.8
 
